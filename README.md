@@ -1,5 +1,7 @@
 ![Android CI](https://github.com/belljay/SwitchButton/workflows/Android%20CI/badge.svg)
 [![](https://jitpack.io/v/belljay/SwitchButton.svg)](https://jitpack.io/#belljay/SwitchButton)
+[![](https://img.shields.io/badge/minSdkVersion-11-brightgreen)](https://shields.io/)
+[![](https://img.shields.io/badge/targetSdkVersion-29-blue)](https://shields.io/)
 
 # SwitchButton
 

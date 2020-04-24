@@ -1,4 +1,10 @@
+![Android CI](https://github.com/belljay/SwitchButton/workflows/Android%20CI/badge.svg)
+[![](https://jitpack.io/v/belljay/SwitchButton.svg)](https://jitpack.io/#belljay/SwitchButton)
+
 # SwitchButton
+
+Note: this repo is forked and fixed forward on top of the awesome repo of [zcweng/SwitchButton](https://github.com/zcweng/SwitchButton). I upgraded API level to 29 so that it's compatiable with latest Google Play store requirements. Codebase is also upgraded to AndroidX for latest reference. Some minor discrepency is also fixed.
+
 SwitchButton.An *beautiful+lightweight+custom-style-easy* switch widget for Android,minSdkVersion >= 11<br>
 issues welcome~<br>
 ![](21879.gif)<br>

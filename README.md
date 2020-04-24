@@ -36,7 +36,7 @@ allprojects {
 ...
 
 dependencies {
-    implementation 'com.github.belljay:SwitchButton:1.0.0'
+    implementation 'com.github.belljay:SwitchButton:1.0.1'
 }
 ```
 
@@ -53,7 +53,7 @@ maven:
 <dependency>
     <groupId>com.github.belljay</groupId>
     <artifactId>SwitchButton</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 

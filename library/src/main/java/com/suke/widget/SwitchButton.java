@@ -63,8 +63,78 @@ public class SwitchButton extends View implements Checkable {
     }
 
     @Override
+    public final void setOnClickListener(OnClickListener l) {}
+
+    @Override
+    public final void setOnLongClickListener(OnLongClickListener l) {}
+
+    public void setOnCheckedChangeListener(OnCheckedChangeListener l){
+        onCheckedChangeListener = l;
+    }
+
+    public interface OnCheckedChangeListener{
+        void onCheckedChanged(SwitchButton view, boolean isChecked);
+    }
+
+    @Override
     public final void setPadding(int left, int top, int right, int bottom) {
         super.setPadding(0, 0, 0, 0);
+    }
+
+    @Override
+    public void setChecked(boolean checked) {
+        if(checked == isChecked()){
+            postInvalidate();
+            return;
+        }
+        toggle(enableEffect, false);
+    }
+
+    @Override
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    @Override
+    public void toggle() {
+        toggle(true);
+    }
+
+    public void setButtonEdgeFrame(boolean value) {
+        buttonEdgeFrame = value;
+    }
+
+    /**
+     * 切换状态
+     * @param animate
+     */
+    public void toggle(boolean animate) {
+        toggle(animate, true);
+    }
+
+    /**
+     * 设置是否启用阴影效果
+     * @param shadowEffect true.启用
+     */
+    public void setShadowEffect(boolean shadowEffect) {
+        if(this.shadowEffect == shadowEffect){return;}
+        this.shadowEffect = shadowEffect;
+
+        if(this.shadowEffect){
+            buttonPaint.setShadowLayer(
+                    shadowRadius,
+                    0, shadowOffset,
+                    shadowColor);
+        }else{
+            buttonPaint.setShadowLayer(
+                    0,
+                    0, 0,
+                    0);
+        }
+    }
+
+    public void setEnableEffect(boolean enable){
+        this.enableEffect = enable;
     }
 
     /**
@@ -467,37 +537,6 @@ public class SwitchButton extends View implements Checkable {
         }
     }
 
-    @Override
-    public void setChecked(boolean checked) {
-        if(checked == isChecked()){
-            postInvalidate();
-            return;
-        }
-        toggle(enableEffect, false);
-    }
-
-    @Override
-    public boolean isChecked() {
-        return isChecked;
-    }
-
-    @Override
-    public void toggle() {
-        toggle(true);
-    }
-
-    public void setButtonEdgeFrame(boolean value) {
-        buttonEdgeFrame = value;
-    }
-
-    /**
-     * 切换状态
-     * @param animate
-     */
-    public void toggle(boolean animate) {
-        toggle(animate, true);
-    }
-
     private void toggle(boolean animate, boolean broadcast) {
         if(!isEnabled()){return;}
 
@@ -668,31 +707,6 @@ public class SwitchButton extends View implements Checkable {
     }
 
     /**
-     * 设置是否启用阴影效果
-     * @param shadowEffect true.启用
-     */
-    public void setShadowEffect(boolean shadowEffect) {
-        if(this.shadowEffect == shadowEffect){return;}
-        this.shadowEffect = shadowEffect;
-
-        if(this.shadowEffect){
-            buttonPaint.setShadowLayer(
-                    shadowRadius,
-                    0, shadowOffset,
-                    shadowColor);
-        }else{
-            buttonPaint.setShadowLayer(
-                    0,
-                    0, 0,
-                    0);
-        }
-    }
-
-    public void setEnableEffect(boolean enable){
-        this.enableEffect = enable;
-    }
-
-    /**
      * 开始进入拖动状态
      */
     private void pendingDragState() {
@@ -761,21 +775,6 @@ public class SwitchButton extends View implements Checkable {
             setUncheckViewState(afterState);
         }
         valueAnimator.start();
-    }
-
-
-    @Override
-    public final void setOnClickListener(OnClickListener l) {}
-
-    @Override
-    public final void setOnLongClickListener(OnLongClickListener l) {}
-
-    public void setOnCheckedChangeListener(OnCheckedChangeListener l){
-        onCheckedChangeListener = l;
-    }
-
-    public interface OnCheckedChangeListener{
-        void onCheckedChanged(SwitchButton view, boolean isChecked);
     }
 
     /*******************************************************/

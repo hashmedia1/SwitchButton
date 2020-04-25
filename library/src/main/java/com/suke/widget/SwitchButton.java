@@ -462,7 +462,9 @@ public class SwitchButton extends View implements Checkable {
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(1);
         paint.setColor(0XffDDDDDD);
-        canvas.drawCircle(x, y, buttonRadius, paint);
+        if (buttonEdgeFrame) {
+            canvas.drawCircle(x, y, buttonRadius, paint);
+        }
     }
 
     @Override
@@ -482,6 +484,10 @@ public class SwitchButton extends View implements Checkable {
     @Override
     public void toggle() {
         toggle(true);
+    }
+
+    public void setButtonEdgeFrame(boolean value) {
+        buttonEdgeFrame = value;
     }
 
     /**
@@ -921,7 +927,10 @@ public class SwitchButton extends View implements Checkable {
      * Color for button when it's check
      */
     private int checkedButtonColor;
-    
+    /**
+     * Whether to turn on the button edge frame drawing
+     */
+    private boolean buttonEdgeFrame = true;
     
     /**
      * 按钮最左边

@@ -100,6 +100,14 @@ public class SwitchButton extends View implements Checkable {
         toggle(true);
     }
 
+    public void setCheckedButtonColor(int checkedButtonColor) {
+        this.checkedButtonColor = checkedButtonColor;
+    }
+
+    public void setUncheckedButtonColor(int uncheckButtonColor) {
+        this.uncheckButtonColor = uncheckButtonColor;
+    }
+
     public void setButtonEdgeFrame(boolean value) {
         buttonEdgeFrame = value;
     }

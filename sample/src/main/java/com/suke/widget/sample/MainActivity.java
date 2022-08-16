@@ -1,5 +1,6 @@
 package com.suke.widget.sample;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.suke.widget.SwitchButton;
@@ -18,7 +19,7 @@ public class MainActivity extends Activity {
 		switchButton.toggle();     //switch state
 		switchButton.toggle(false);//switch without animation
 		switchButton.setShadowEffect(true);//disable shadow effect
-		switchButton.setEnabled(false);//disable button
+		//switchButton.setEnabled(false);//disable button
 		switchButton.setEnableEffect(false);//disable the switch animation
 		switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
 			@Override
@@ -27,6 +28,9 @@ public class MainActivity extends Activity {
 			}
 		});
 
+
+
+		switchButton.setCheckedButtonColor(Color.parseColor("#000000"));
 
 
 	}

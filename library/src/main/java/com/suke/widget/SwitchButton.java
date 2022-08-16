@@ -101,7 +101,7 @@ public class SwitchButton extends View implements Checkable {
     }
 
     public void setCheckedButtonColor(int checkedButtonColor) {
-        this.checkedButtonColor = checkedButtonColor;
+        this.checkedColor = checkedButtonColor;
     }
 
     public void setUncheckedButtonColor(int uncheckButtonColor) {
